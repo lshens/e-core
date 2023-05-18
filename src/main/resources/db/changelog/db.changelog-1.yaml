@@ -1,0 +1,39 @@
+databaseChangeLog:
+    - changeSet:
+          id: JIRA-TICKET-1
+          author: 'Lucas Shen'
+          changes:
+            - createTable:
+                tableName: roles
+                columns:
+                  - column:
+                      name: id
+                      type: VARCHAR(36)
+                  - column:
+                      name: name
+                      type: VARCHAR(20)
+            - addPrimaryKey:
+                columnNames: id
+                constraintName: pk_roles
+                tableName: roles
+            -  addUniqueConstraint:
+                columnNames: name
+                constraintName: unique_role_name
+                tableName: roles
+            - addNotNullConstraint:
+                columnName: name
+                constraintName: not_null_role_name
+                tableName: roles
+            - createTable:
+                tableName: users_roles
+                columns:
+                  - column:
+                      name: role_id
+                      type: VARCHAR(36)
+                  - column:
+                      name: user_id
+                      type: VARCHAR(36)
+            - addPrimaryKey:
+                columnNames: role_id, user_id
+                constraintName: pk_users_roles
+                tableName: users_roles

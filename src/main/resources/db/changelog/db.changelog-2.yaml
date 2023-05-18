@@ -1,0 +1,32 @@
+databaseChangeLog:
+    - changeSet:
+          id: JIRA-TICKET-2
+          author: 'Lucas Shen'
+          changes:
+            - insert:
+                tableName: roles
+                columns:
+                  - column:
+                      name: id
+                      value: e49a53c1-8703-42c5-971c-b1732aea5361
+                  - column:
+                      name: name
+                      value: Developer
+            - insert:
+                tableName: roles
+                columns:
+                  - column:
+                      name: id
+                      value: 3de9e5bc-598f-458a-a9a7-0992536ac99f
+                  - column:
+                      name: name
+                      value: Tester
+            - insert:
+                tableName: roles
+                columns:
+                  - column:
+                      name: id
+                      value: ad0b3e55-3bd5-4b96-8e60-63a12898d0ca
+                  - column:
+                      name: name
+                      value: Product Owner
