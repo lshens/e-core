@@ -1,0 +1,8 @@
+feign.url: https://cgjresszgg.execute-api.eu-west-1.amazonaws.com
+
+spring.cache.cache-names: role,roles,team,user,memberships
+
+scheduler:
+  data:
+    check:
+      cron: 0 0 * * * * # every day at 12 AM

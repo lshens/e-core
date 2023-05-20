@@ -1,1 +1,27 @@
-feign.client.config.url: https://cgjresszgg.execute-api.eu-west-1.amazonaws.com
+feign.url: https://cgjresszgg.execute-api.eu-west-1.amazonaws.com
+
+hibernate:
+  dialect: org.hibernate.dialect.PostgreSQLDialect
+  hbm2dll: validate
+  show_sql: false
+  format_sql: true
+
+# for local postgres:
+spring.datasource:
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/dev
+  username: te2admin
+  password: foobar
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      fail-on-unknown-properties: false
+
+spring.cache.cache-names: role,roles,team,user,memberships
+
+scheduler:
+  data:
+    check:
+      cron: 0 0 * * * * # every day at 12 AM

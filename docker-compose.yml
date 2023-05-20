@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  postgres-9.6:
+    image: postgres:9.6.23-alpine
+    environment:
+      - POSTGRES_PASSWORD=foobar
+      - POSTGRES_USER=te2admin
+      - POSTGRES_DB=dev
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

@@ -12,6 +12,14 @@ databaseChangeLog:
                   - column:
                       name: name
                       type: VARCHAR(20)
+            - addUniqueConstraint:
+                columnNames: id
+                constraintName: unique_role_id
+                tableName: roles
+            - addNotNullConstraint:
+                columnName: id
+                constraintName: not_null_role_id
+                tableName: roles
             - addPrimaryKey:
                 columnNames: id
                 constraintName: pk_roles
@@ -25,7 +33,7 @@ databaseChangeLog:
                 constraintName: not_null_role_name
                 tableName: roles
             - createTable:
-                tableName: users_roles
+                tableName: membership_roles
                 columns:
                   - column:
                       name: role_id
@@ -33,7 +41,26 @@ databaseChangeLog:
                   - column:
                       name: user_id
                       type: VARCHAR(36)
+                  - column:
+                      name: team_id
+                      type: VARCHAR(36)
+            - addNotNullConstraint:
+                columnName: role_id
+                constraintName: not_null_membership_roles_role_id
+                tableName: membership_roles
+            - addNotNullConstraint:
+                columnName: user_id
+                constraintName: not_null_membership_roles_user_id
+                tableName: membership_roles
+            - addNotNullConstraint:
+                columnName: team_id
+                constraintName: not_null_membership_roles_team_id
+                tableName: membership_roles
+            - addUniqueConstraint:
+                columnNames: role_id, user_id, team_id
+                constraintName: unique_pk_membership_roles
+                tableName: membership_roles
             - addPrimaryKey:
-                columnNames: role_id, user_id
-                constraintName: pk_users_roles
-                tableName: users_roles
+                columnNames: role_id, user_id, team_id
+                constraintName: pk_membership_roles
+                tableName: membership_roles
